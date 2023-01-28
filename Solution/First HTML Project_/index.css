@@ -1,0 +1,190 @@
+*{
+    box-sizing: border-box;
+}
+
+.navigation{
+    display: flex;
+    width: 100%;
+    border: 2px solid black;
+}
+
+a{
+    padding: 5px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    width: 50%;
+    border: 2px solid white;
+    font-size: 30px;
+    text-decoration: none;
+}
+.active{
+    color: black;
+    background: white;
+    border: 2px solid black;
+}
+
+.container{
+    height: 100%;
+    width: 100%;
+}
+
+.content{
+    margin: 10px;
+    margin-top: 0px;
+    padding: 10px;
+    border: 2px dashed black;
+    border-top: none;
+    height: 750px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.header{
+    background-image: url("header background.jpeg");
+    border: 2px solid black;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.header h1{
+    background-color:rgba(52, 71, 133, 0.662);
+    text-align: center; 
+    font-size: 50px;
+    color: blue ;
+}
+
+.header img{
+    padding: 10px;
+    margin-left: 420px;
+}
+
+.header h3{
+    color: white;
+    background-color:rgba(0, 0, 0, 0.662);
+    margin: 10px 0 0 0;
+    text-align: center;
+    font-weight: 200;
+    font-size: 40px;
+}
+
+.header p{
+    margin: 10px;
+    background-color:rgba(255, 255, 255, 0.662);
+    padding: 20px;
+    font-size: 20px;
+    font-weight: 900;
+    color: black;
+}
+
+.characters{
+    background-color: lightcoral;
+    margin-top: 10px;
+    border: 2px solid black;
+    height: 700px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 20px;
+}
+
+.characters h1{
+    margin-top: 5px;
+    text-align: center;
+    font-size: 50px;
+    color: black; 
+}
+
+.characters img{
+    width: 230px;
+    padding: 10px;
+}
+
+.charactercontent{
+    margin-top: 20px;
+    padding: 10px;
+    background-color: white;
+    border: 2px solid black;
+    height: 400px;
+    display: flex;
+}
+
+.textcontent{
+    padding-top: 0;
+    padding-left: 20px;
+    height: 370px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    font-size: 30px;
+}
+
+.firstCharacter h2{
+    padding: 10px;
+    background-color:rgba(255, 255, 255, 0.662);
+    color: red;
+}
+
+.secondCharacter h2{
+    padding: 10px;
+    background-color:rgba(255, 255, 255, 0.662);
+    color: green;
+}
+
+.thirdCharacter h2{
+    padding: 10px;
+    background-color:rgba(255, 255, 255, 0.662);
+    color: palevioletred;
+}
+
+.fourthCharacter h2{
+    padding: 10px;
+    background-color:rgba(255, 255, 255, 0.662);
+    color: orangered;
+}
+
+.fifthCharacter h2{
+    padding: 10px;
+    background-color:rgba(255, 255, 255, 0.662);
+    color: navy;
+}
+
+.sixthCharacter h2{
+    padding: 10px;
+    background-color:rgba(255, 255, 255, 0.662);
+    color: teal;
+}
+
+.firstCharacter .charactercontent{
+    background-image: url("character1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.secondCharacter .charactercontent{
+    background-image: url("character\ 2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.thirdCharacter .charactercontent{
+    background-image: url("character3.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.fourthCharacter .charactercontent{
+    background-image: url("character\ 4.png.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.fifthCharacter .charactercontent{
+    background-image: url("character\ 5.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.sixthCharacter .charactercontent{
+    background-image: url("character 6.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.characters p{
+    background-color:rgba(0, 0, 0, 0.662);
+    color: white;
+}
