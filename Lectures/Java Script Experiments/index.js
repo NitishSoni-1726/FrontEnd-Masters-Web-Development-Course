@@ -58,3 +58,140 @@ for (let i = 0; i < timesToRepeat; i++) {
   newRepeated = newRepeated + " " + newCharacter;
   console.log(newRepeated);
 }
+
+//using pad start
+
+console.log("".padStart(timesToRepeat, character));
+
+//function
+
+function addition(firstNumber, secondNumber) {
+  console.log(firstNumber + secondNumber);
+}
+
+function substraction(firstNumber, secondNumber) {
+  console.log(firstNumber - secondNumber);
+}
+
+function multiplication(firstNumber, secondNumber) {
+  console.log(firstNumber * secondNumber);
+}
+
+function division(firstNumber, secondNumber) {
+  console.log(firstNumber / secondNumber);
+}
+
+//calling functions
+addition(3, 5);
+substraction(5, 1);
+multiplication(7, 5);
+division(40, 4);
+
+function calculator(whatToDoWithNumbers, number1, number2) {
+  if (whatToDoWithNumbers == "+") {
+    console.log(number1 + number2);
+  } else if (whatToDoWithNumbers == "-") {
+    console.log(number1 - number2);
+  } else if (whatToDoWithNumbers == "*") {
+    console.log(number1 * number2);
+  } else if (whatToDoWithNumbers == "/") {
+    console.log(number1 / number2);
+  } else {
+    console.log("Invalid Function");
+  }
+}
+
+calculator("+", 4, 5);
+calculator("-", 7, 4);
+calculator("*", 10, 9);
+calculator("/", 20, 3);
+
+//objects
+//single objects
+const person1 = {
+  name: "Nitish",
+  age: 22,
+  city: "Bangalore",
+};
+
+const person2 = {
+  name: "Jasprit",
+  age: 22,
+  city: "Hyderabad",
+};
+
+const person3 = {
+  name: "Porus",
+  age: 22,
+  city: "Tezpur",
+};
+
+console.log(person1);
+console.log(person2);
+console.log(person3);
+//objects inside object
+const data = {
+  person1: {
+    name: "Nitish",
+    age: 22,
+    city: "Bangalore",
+  },
+  person2: {
+    name: "Jasprit",
+    age: 22,
+    city: "Hyderabad",
+  },
+  person3: {
+    name: "Porus",
+    age: 22,
+    city: "Tezpur",
+  },
+};
+console.log(data);
+//mixing function and object
+const user1 = {
+  name: "Nitish",
+  age: 22,
+  city: "Bangalore",
+};
+const user2 = {
+  name: "Jasprit",
+  age: 22,
+  city: "Hyderabad",
+};
+const user3 = {
+  name: "Porus",
+  age: 22,
+  city: "Tezpur",
+};
+const user4 = {
+  name: "Pushp",
+  age: 22,
+  city: "Patna",
+};
+const user5 = {
+  name: "Dharma",
+  age: 22,
+  city: "Mysore",
+};
+const user6 = {
+  name: "Kshitij",
+  age: 22,
+  city: "Lucknow",
+};
+
+const cityAndState = {
+  Bangalore: "Karnataka",
+  Hyderabad: "Andhra Pradesh",
+  Tezpur: "Assam",
+  Mysore: "Karnataka",
+  Patna: "Bihar",
+  Lucknow: "Uttar Pradesh",
+};
+function stateFinder(user) {
+  let location = user.city;
+  let state = cityAndState[location];
+  console.log(user.name + " Your State is " + state);
+}
+
+stateFinder(user5);
