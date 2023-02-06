@@ -129,6 +129,7 @@ const person3 = {
 console.log(person1);
 console.log(person2);
 console.log(person3);
+
 //objects inside object
 const data = {
   person1: {
@@ -148,6 +149,7 @@ const data = {
   },
 };
 console.log(data);
+
 //mixing function and object
 const user1 = {
   name: "Nitish",
@@ -188,10 +190,81 @@ const cityAndState = {
   Patna: "Bihar",
   Lucknow: "Uttar Pradesh",
 };
+
 function stateFinder(user) {
   let location = user.city;
   let state = cityAndState[location];
-  console.log(user.name + " Your State is " + state);
+  console.log(
+    user.name + ", You Live in " + user.city + " and Your State is " + state
+  );
 }
 
 stateFinder(user5);
+stateFinder(user1);
+stateFinder(user4);
+
+//arrays
+
+const persons = [];
+
+persons.push({ name: "Niitish", age: 22 });
+persons.push({ name: "Porus", age: 22 });
+persons.push({ name: "Jasprit", age: 23 });
+
+console.log(persons);
+
+for (let i = 0; i < persons.length; i++) {
+  const person = persons[i];
+  console.log(person);
+}
+
+const array = [];
+function agedata(name, age) {
+  if (age < 18 && age > 0) {
+    array.push(name + " is Not 18+ Entered age is " + age);
+  } else if (age >= 18) {
+    array.push(name + " is 18 + Entered age is " + age);
+  } else if (age <= 0) {
+    array.push("Enter Valid Age Entered age is " + age);
+  }
+  console.log(array);
+}
+
+agedata("porus", 22);
+agedata("xyz", 17);
+agedata("abc", -1);
+
+let userlogindata = [];
+
+function registration(enteredemail, enteredpassword) {
+  if (enteredemail == "") {
+    console.log("Enter an Email Address");
+  } else if (enteredpassword == "") {
+    console.log("Enter a Password");
+  } else {
+    userlogindata.push({
+      useremail: enteredemail,
+      userpassword: enteredpassword,
+    });
+  }
+  console.log(userlogindata);
+}
+
+function login(enteredemail, enteredpassword) {
+  for (let i = 0; i < userlogindata.length; i++) {
+    const data = userlogindata[i];
+    if (
+      enteredemail == data.useremail &&
+      enteredpassword == data.userpassword
+    ) {
+      console.log("Logged in successfully");
+    } else {
+      console.log("Invalid Email or Password");
+    }
+  }
+}
+
+registration("nitish", "1234");
+registration("porus", "890");
+
+login("porus", "890");
