@@ -270,3 +270,48 @@ registration("nitish", "1234");
 registration("porus", "890");
 
 login("porus", "890");
+
+// talking to the server
+
+const Data = {
+  country: [
+    "China",
+    "India",
+    "Indonesia",
+    "Pakistan",
+    "Bangladesh",
+    "Japan",
+    "Philippines",
+    "Vietnam",
+    "Turkey",
+    "Iran",
+    "Thailand",
+    "Myanmar",
+    "South Korea",
+    "Iraq",
+    "Afghanistan",
+  ],
+  continent: "Asia",
+};
+
+console.log(Data);
+const backData = JSON.stringify(Data);
+console.log(backData);
+
+const frontData = JSON.parse(backData);
+console.log(frontData.country);
+
+// Learning how to call an API
+
+const button = document.querySelector("#dog-button");
+const imageDisplayBox = document.querySelector("#content");
+button.addEventListener("click", imageDisplay);
+async function imageDisplay() {
+  const fetchingImage = await fetch("https://dog.ceo/api/breeds/image/random");
+  const processingResponse = await fetchingImage.json();
+  const imageDisplay = document.createElement("img");
+  imageDisplay.className = "image";
+  imageDisplay.src = processingResponse.message;
+  imageDisplay.alt = "A cute Dog";
+  imageDisplayBox.appendChild(imageDisplay);
+}
