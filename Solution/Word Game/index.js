@@ -14,12 +14,14 @@ const WORD_LENGTH = 5;
 wonButton.addEventListener("click", refresh);
 lostButton.addEventListener("click", refresh);
 
+//when you hit play again button
 function refresh() {
   lost.classList.add("display-none");
   won.classList.add("display-none");
   location.reload();
 }
 
+// to check the number of times the letters are repeated
 function repetedLetters(array) {
   const obj = {};
   for (let i = 0; i < array.length; i++) {
@@ -33,6 +35,7 @@ function repetedLetters(array) {
   return obj;
 }
 
+//initialise function to fetch the word first
 async function init() {
   const word = await fetch(
     "https://words.dev-apis.com/word-of-the-day?random=1"
@@ -47,6 +50,8 @@ async function init() {
   puzzleWord.innerText = processingResponse.word.toUpperCase();
 
   document.addEventListener("keydown", keyPress);
+
+  // what action to take on key press
   function keyPress(event) {
     let action = event.key;
     if (action === "Enter") {
@@ -57,12 +62,14 @@ async function init() {
       addLetter(action.toUpperCase());
     }
   }
+  // action if key press is an letter
   function isLetter(letter) {
     return /^[a-zA-Z]$/.test(letter);
   }
   let currentGuess = "";
   let currentRow = 0;
   let rounds = 6;
+  // function to add typed letter to the div
   function addLetter(letter) {
     if (currentGuess.length < WORD_LENGTH) {
       currentGuess += letter;
@@ -73,12 +80,15 @@ async function init() {
     letters[WORD_LENGTH * currentRow + currentGuess.length - 1].innerText =
       letter;
   }
+
+  //function when we click enter after guessing word
   async function submit() {
     validWordContent.classList.remove("display-block");
     if (currentGuess.length !== WORD_LENGTH) {
       return;
     }
     loading.classList.remove("display-none");
+    // to check if enterted word is a valid word or not
     const validateWord = await fetch(
       "https://words.dev-apis.com/validate-word",
       {
@@ -95,11 +105,12 @@ async function init() {
       markInvalidWord();
       return;
     }
-
+    // if all letters are in the right place you win
     if (currentGuess === fetchedWord) {
       game.classList.add("display-none");
       won.classList.add("display-block");
     }
+    //if letters are in correct place then it turns green
     const guessPart = currentGuess.split("");
     const map = repetedLetters(fetchedWordParts);
     for (let i = 0; i < guessPart.length; i++) {
@@ -109,6 +120,7 @@ async function init() {
       }
     }
 
+    // if letter is present in the word but in different place it turns orange else if letters aren't present the opacity turns to 80%
     for (let i = 0; i < guessPart.length; i++) {
       if (guessPart[i] === fetchedWordParts[i]) {
       } else if (
@@ -122,16 +134,22 @@ async function init() {
         );
       }
     }
+    // to shift to the next row or the next guess
     currentRow++;
     currentGuess = "";
+    // if a certain no of guess are over you loose
     if (currentRow === rounds) {
       game.classList.add("display-none");
       lost.classList.add("display-block");
     }
+
+    // if a word is not valid it displays invalidword
     function markInvalidWord() {
       validWordContent.classList.add("display-block");
     }
   }
+
+  // function to clear the last entered letter using backspace
   function clear() {
     currentGuess = currentGuess.substring(0, currentGuess.length - 1);
     letters[WORD_LENGTH * currentRow + currentGuess.length].innerText = "";
